@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom";
 import { Home } from "../componentes/pages/Home";
 import { Login } from "../componentes/pages/Login";
-import { Page404 } from "../componentes/pages/404";
 import { UseEffectPage } from "../componentes/pages/UseEffectPage";
 import { ImagenesPage } from "../componentes/pages/ImagenesPage";
 import { RutasAnidadasPage } from "../componentes/pages/RutasAnidadasPage";
@@ -17,7 +16,10 @@ export const MyRoutes =() => (
             <Route path="/useEffect" element={<UseEffectPage/>}/>  
             <Route path="/imagenes" element={<ImagenesPage/>}/>
             <Route path="/rutasanidadas" element ={<RutasAnidadasPage/>}>
-            <Route path="perfil" element={<PerfilPage/>}/>
+            {/*ruta por defecto*/}
+            <Route index element={<Navigate to="perfil/10"replace/>}/>
+
+            <Route path="perfil/:id" element={<PerfilPage/>}/>
             <Route path="configuracion" element={<ConfiguracionPage/>}/>
             </Route>       
             <Route path="configuracion" element={<ConfiguracionPage/>}/>

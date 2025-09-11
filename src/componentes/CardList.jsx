@@ -6,7 +6,7 @@ export const CardList =()=>{
         to:"useEffect"
     },
     {
-        title: "RUTASANIDADAS",
+        title: "Rutas Anidadas",
         to:"/rutasanidadas"
     },
     {
@@ -14,12 +14,12 @@ export const CardList =()=>{
         to:"/imagenes"
     }]
     return(
-        <div className="flex gap-3">
+        <div className="flex flex-col gap-6">
             {temasTeoria.map((item, index)=>(
-                <Link to={item.to} key ={index} className="group w-full bg-gray-100 text-black border-yellow-800 p-4 rounded-2xl flex justify-between border-5 
-                 hover:border-red-600 cursor-pointer">
-                    <h3 className="group-hover:text-red-500 font-extrabold text-lg">{item.title}</h3>
-                    <Icon className="group-hover:text-red-600" icon="weui:arrow-filled" width="15" height="24" />
+                <Link to={item.to} key ={index} className="flex group w-full bg-gray-100 text-black border-blue-950 p-4 rounded-2xl justify-between border-5 
+                 hover:border-violet-950 cursor-pointer">
+                    <h3 className="group-hover:text-violet-950 font-extrabold text-lg">{item.title}</h3>
+                    <Icon className=" group-hover:text-violet-950 " icon="weui:arrow-filled" width="30" height="30" />
                 </Link>
             ))}
         </div>
