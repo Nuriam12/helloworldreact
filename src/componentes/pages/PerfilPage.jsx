@@ -3,7 +3,7 @@ export const PerfilPage =()=>{
     const {id}= useParams() //hook para capturar parametros de la url
     return(
         <div className="h-screen bg-amber-300 text-black">
-            <span>PerfilPage id usuario : {id}</span>
+            <span>PerfilPage id usuarios : {id}</span>
         </div>
     )
 }

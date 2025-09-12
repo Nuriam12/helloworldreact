@@ -1,7 +1,9 @@
 import {BtnVolver} from "../ui/buttons/BtnVolver"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 export const ImagenesPage =()=>{
-      const {imagen} = useParams() //hook para capturar parametros de la url     
+    const[searchParams] = useSearchParams()
+    const src = searchParams.get("src")
+         
     return(
         <main className="max-w-3xl mx-auto p-6 space-y-10">
             <BtnVolver/>
@@ -9,7 +11,7 @@ export const ImagenesPage =()=>{
             <div className="grid grid-cols-2 gap-4">
             <section className="border p-4 rounded-2xl">
                 <h2 className="text-xl font-semibold">IMAGEN LOCAL IMPORTADA</h2>
-                <img src="/yeah.jpg" alt="Yeah" className="max-w-xl w-full" />
+                <img src="src" alt="Yeah" className="max-w-xl w-full" />
             </section>
             <section className="border p-4 rounded-2xl">
                 <h2 className="text-xl font-semibold">IMAGEN DESDE UNA URL</h2>

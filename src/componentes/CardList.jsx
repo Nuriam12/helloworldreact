@@ -1,6 +1,7 @@
 import{ Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 export const CardList =()=>{
+    const urlImage="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2014/01/13flex_ronnie-coleman_most-muscular_inset.jpg?quality=40&strip=all"
     const temasTeoria = [{
         title: "Contador",
         to:"useEffect"
@@ -11,8 +12,16 @@ export const CardList =()=>{
     },
     {
         title:"Imagenes",
-        to:"/imagenes"
-    }]
+        to:"/imagenes?src=${}"
+    },
+    {
+        title:"hora",
+        to:"/relojpage"
+    },
+    {
+        title:"Apis",
+        to:"/apis"
+    } ]
     return(
         <div className="flex flex-col gap-6">
             {temasTeoria.map((item, index)=>(

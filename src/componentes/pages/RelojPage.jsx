@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-
+import { BtnVolver } from "../ui/buttons/BtnVolver";
+import React, { useState, useEffect } from "react";
 export const RelojPage =()=>{
     const [hora, setHora] = useState("00:00:00");
     useEffect(()=>{

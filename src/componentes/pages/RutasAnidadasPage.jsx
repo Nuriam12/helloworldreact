@@ -1,8 +1,7 @@
 import { NavLink,Outlet } from "react-router-dom"
 import { BtnVolver } from "../ui/buttons/BtnVolver"
-
 export const RutasAnidadasPage =()=>{
-    const id=20
+    const id=30
     return(
         
         <div className="p-6 max-w-2xl mx-auto space-y-6">
