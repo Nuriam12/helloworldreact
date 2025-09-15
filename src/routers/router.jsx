@@ -8,6 +8,7 @@ import { ConfiguracionPage } from "../componentes/pages/ConfiguracionPage";
 /*import { LayoutMain } from "../componentes/Layouts/LayoutMain"; LAYOUT PERSISTENTE*/
 import { RelojPage } from "../componentes/pages/RelojPage";
 import { ApisPage } from "../componentes/pages/ApisPage";
+import { FormulariosPage } from "../componentes/pages/FormulariosPage";
 
 export const MyRoutes =() => (
     <BrowserRouter>
@@ -24,6 +25,7 @@ export const MyRoutes =() => (
                 <Route path="configuracion" element={<ConfiguracionPage/>}/>
                 </Route>       
                 <Route path="configuracion" element={<ConfiguracionPage/>}/>
+                <Route path="formularios" element={<FormulariosPage/>}></Route>
         </Routes>
     </BrowserRouter>
 )

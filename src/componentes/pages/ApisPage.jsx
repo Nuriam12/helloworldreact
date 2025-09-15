@@ -1,32 +1,45 @@
+import { useQuery } from "@tanstack/react-query";
+import  axios  from "axios";
 import { useEffect,useState } from "react";
-import { data } from "react-router-dom";
+
 
 export const ApisPage = () => {
- const [pokemons, setPokemos] = useState([])
-    useEffect(()=>{
-        axios.get("https://pokeapi.co/api/v2/pokemon?limit=20")
+ //const [pokemons, setPokemos] = useState([])
+ //const [cargando, setCargando] = useState (true)
+ const [visible,setVisible] = useState(false)
+ const {data, isLoading,error,refetch} = useQuery ({
+    queryKey:["consulta a pokeapi"],
+    queryFn:async()=>{const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20");
+        return res.data.results;
+    },
+    refetchOnWindowFocus:false,
+    enabled:false
+ });
+ //state para modificar el button y la informacion que mostramos en pantalla//
+ const mostrar = async () => {
+    if (!visible && !data) {
+        await refetch();
+    }
+    setVisible((prev) => !prev);
+ }
+if (isLoading) return <span>cargando...</span>;
+if (error) return <span>error...{error.message}</span>
 
-
-
-
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
-        .then((res)=>res.json())
-        .then((data) => {setPokemos(data.results);
-            console.log("data",data.results);})
-    },[]);
     return (
-      <div className="h-screen bg-amber-300 text-black">
-        <span>pokemons</span>
-        <section className="flex flex-col">{
-            pokemons.map((item,index)=>{
+      <div className="h-screen bg-amber-300 text-black gap-5 ">
+        <span className="bg-white ">pokemons</span>
+        <button className="bg-red-500 m-4" onClick={mostrar}>{visible ? "mostrar pokemons":"ocultar pokemons"}</button>
+        {visible &&(
+        <section className="flex flex-col ">{
+            data?.map((item,index)=>{
                 return(
-                    <span>
+                    <span key={index}> 
                         {item.name}
                     </span>
                 )
             })
         }</section>
-        
+    )}
       </div>
     );
 };
@@ -48,3 +61,10 @@ export const ApisPage = () => {
                 )
             }
         </div>*/
+
+//useEffect(()=>{
+//        fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
+//        .then((res)=>res.json())
+//        .then((data) => {setPokemos(data.results);
+//            console.log("data",data.results);})
+//    },[]);            
