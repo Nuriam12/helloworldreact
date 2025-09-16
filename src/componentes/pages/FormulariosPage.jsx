@@ -1,19 +1,24 @@
 import { useForm } from "react-hook-form";
-import { useMenuStore } from "../../store/MenuStore";
+import { useMenuStore } from "../../store/useMenuStore";
 //FORMULARIOS//
 export const FormulariosPage = () => {
-    const{itemselect}=useMenuStore
+    const{itemselect}=useMenuStore(); //llamado al zustand
     const {register,handleSubmit,formState:{errors},watch,reset} = useForm();
+    /*explicaciones del hook
+    Register : recopila la informacion
+    handlesubmit : verifica la informacion que recopila register y hace el envio mediante la onSubmit
+    watch : permite mostrar como la informacion se modifica en tiempo real en el formulario
+    reset : eliminar toda la informacion que no se envio
+    */
     const enviar = (data) => {
-        console.log(data)
-        //alert(data.nombre)
+        console.log(data) // mostramos la informacion 
     };
+    console.log(itemselect) 
     return (
         <main className="h-screen bg-white text-black flex flex-col">
-            <h1>FormulariosPage {watch("nombre")}</h1>
-            {
-                itemselect?.title
-            }
+            <h1>FormulariosPages {watch("nombre")}</h1> 
+            {itemselect?.title} 
+            {itemselect?.to}
             <form onSubmit={handleSubmit(enviar)}className="border p-2 flex flex-col gap-4">
                 <section className="bg-amber-200">
                   <h1>VALIDAR NOMBRE</h1>                

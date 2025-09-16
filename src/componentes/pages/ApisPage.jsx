@@ -6,7 +6,7 @@ import { useEffect,useState } from "react";
 export const ApisPage = () => {
  //const [pokemons, setPokemos] = useState([])
  //const [cargando, setCargando] = useState (true)
- const [visible,setVisible] = useState(false)
+ const [visible,setVisible] = useState(false)//mostrar informacion en la pantalla
  const {data, isLoading,error,refetch} = useQuery ({
     queryKey:["consulta a pokeapi"],
     queryFn:async()=>{const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20");

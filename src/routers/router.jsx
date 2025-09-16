@@ -9,6 +9,8 @@ import { ConfiguracionPage } from "../componentes/pages/ConfiguracionPage";
 import { RelojPage } from "../componentes/pages/RelojPage";
 import { ApisPage } from "../componentes/pages/ApisPage";
 import { FormulariosPage } from "../componentes/pages/FormulariosPage";
+import { ZustandPage} from "../componentes/pages/ZustandPage";
+import { CrudSupabase } from "../componentes/pages/CrudSupabase";
 
 export const MyRoutes =() => (
     <BrowserRouter>
@@ -26,6 +28,9 @@ export const MyRoutes =() => (
                 </Route>       
                 <Route path="configuracion" element={<ConfiguracionPage/>}/>
                 <Route path="formularios" element={<FormulariosPage/>}></Route>
+                <Route path="Zustand" element={<ZustandPage/>}></Route>
+                <Route path="crudsupabase" element={<CrudSupabase/>}></Route>
+
         </Routes>
     </BrowserRouter>
 )

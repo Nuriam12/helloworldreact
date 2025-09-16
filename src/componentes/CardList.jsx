@@ -1,14 +1,17 @@
 import{ Icon } from '@iconify/react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMenuStore } from '../store/MenuStore';
+import { useMenuStore } from '../store/useMenuStore';
 export const CardList =()=>{
-    const {selecItemselect} = useMenuStore()
+    const {setItemselect} = useMenuStore()
     //aqui van todos los cuadros que se muestran en la pantalla//
     const urlImage="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2014/01/13flex_ronnie-coleman_most-muscular_inset.jpg?quality=40&strip=all"
     const temasTeoria = [{
         title: "Contador",
         to:"useEffect"
+    },
+    {
+        title:"CRUD SUPABASE",
+        to:"/crudsupabase"
     },
     {
         title: "Rutas Anidadas",
@@ -29,6 +32,10 @@ export const CardList =()=>{
     {
         title:"Formularios",
         to:"/formularios"
+    },
+    {
+        title:"Zustand",
+        to:"/zustand"
     }
 
     ]
